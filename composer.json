@@ -1,0 +1,22 @@
+{
+    "name": "impress-php/impress",
+    "description": "The Impress PHP Framework.",
+    "keywords": [],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Harold Hoo",
+            "email": "mail@yaolong.me",
+            "homepage": "http://www.yaolong.me"
+        }
+    ],
+    "require": {
+        "symfony/http-foundation" : "~3.0",
+        "symfony/routing" : "~3.0",
+        "vlucas/phpdotenv" : "~2.2",
+        "workerman/phpsocket.io" : "~1.0.4"
+    },
+    "require-dev": {
+        "impress-php/framework" : "dev-master"
+    }
+}

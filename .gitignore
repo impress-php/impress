@@ -1,0 +1,4 @@
+.idea
+composer.lock
+data/cache/*
+data/log/*

@@ -1,7 +1,7 @@
 {
     "name": "impress-php/impress",
     "description": "The Impress PHP Framework.",
-    "keywords": ["impress", "impress-php", "framework"],
+    "keywords": [],
     "license": "MIT",
     "authors": [
         {
@@ -11,12 +11,9 @@
         }
     ],
     "require": {
-        "symfony/http-foundation" : "~3.0",
-        "symfony/routing" : "~3.0",
-        "vlucas/phpdotenv" : "~2.2",
+        "impress-php/framework" : "dev-master",
         "workerman/phpsocket.io" : "~1.0.4"
     },
     "require-dev": {
-        "impress-php/framework" : "dev-master"
     }
 }

@@ -1,4 +1,6 @@
 .idea
 composer.lock
 data/cache/*
+!data/cache/.gitkeep
 data/log/*
+!data/log/.gitkeep

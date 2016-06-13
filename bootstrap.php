@@ -21,3 +21,7 @@ if (boolval(getenv("DEBUG_DISPLAY_ERRORS"))) {
     ini_set("display_errors", 1);
     error_reporting(E_ALL);
 }
+
+if (!date_default_timezone_set(getenv("TIMEZONE"))) {
+    ini_set("date.timezone", getenv("TIMEZONE"));
+}

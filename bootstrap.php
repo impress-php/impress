@@ -12,6 +12,7 @@ define("DATA_DIR", STORAGE_DIR . DIRECTORY_SEPARATOR . "data");
 define("LOG_DIR", DATA_DIR . DIRECTORY_SEPARATOR . "logs");
 define("PID_DIR", DATA_DIR . DIRECTORY_SEPARATOR . "pid");
 define("CACHE_DIR", DATA_DIR . DIRECTORY_SEPARATOR . "cache");
+define("CACHE_VIEWS_DIR", CACHE_DIR . DIRECTORY_SEPARATOR . "views");
 define("SESSIONS_DIR", DATA_DIR . DIRECTORY_SEPARATOR . "sessions");
 
 require_once ROOT . DIRECTORY_SEPARATOR . "vendor/autoload.php";

@@ -7,11 +7,9 @@ use \Symfony\Component\Routing\RouteCollection;
 use \Symfony\Component\Routing\Route;
 
 use \Symfony\Component\HttpFoundation\Request;
-use \Symfony\Component\HttpFoundation\Response;
+use \Impress\Framework\Http\Response;
 
-use Symfony\Component\Templating\PhpEngine;
-use Symfony\Component\Templating\TemplateNameParser;
-use Symfony\Component\Templating\Loader\FilesystemLoader;
+use \Impress\Framework\Http\View;
 
 // init Request --------------------------------------------------------------------
 $request = new Request($_GET, $_POST, array(), $_COOKIE, $_FILES, $_SERVER);
@@ -19,7 +17,7 @@ $request = new Request($_GET, $_POST, array(), $_COOKIE, $_FILES, $_SERVER);
 // create route --------------------------------------------------------------------
 $route = new Route(
     $path = '/foo',
-    $defaults = array('controller' => 'MyController', "xxx" => 'fff'),
+    $defaults = array('controller' => 'HelloWorld', "function" => 'index'),
     $requirements = array(),
     $options = array(),
     $host = '',
@@ -51,26 +49,22 @@ $parameters = $matcher->match($request->getPathInfo());
 
 
 // send response --------------------------------------------------------------------
-$response = new Response();
-$content = date("Y-m-d H:i:s");
 
-// use views -----------------------
-$loader = new FilesystemLoader(VIEWS_DIR . DIRECTORY_SEPARATOR . "%name%.php");
-$templating = new PhpEngine(new TemplateNameParser(), $loader);
-$content = $templating->render('helloworld', array('firstname' => 'Fabien'));
+// use view
+$content = View::make("helloworld.twig", [
+    "firstname" => "world.!!!"
+]);
 
-// use twig ------------------------
-$loader = new Twig_Loader_Filesystem(VIEWS_DIR);
-$twig = new Twig_Environment($loader, array(
-    'cache' => CACHE_VIEWS_DIR,
-));
+// use Controller
+$calss_name = "\\App\\Http\\Controllers\\" . $parameters['controller'];
+$class = new $calss_name();
+$content = call_user_func_array(array($class, $parameters['function']), array());
 
-$content = $twig->render('helloworld.php', array('firstname' => 'Fabien'));
-
-$response->setContent($content);
-//$response->setStatusCode(404);
-//$response->headers->add([
-//    "Content-Type" => "image/jpeg"
-//]);
-$response->send();
-
+if ($content instanceof Response) {
+    $content->send();
+} else {
+    $response = new Response();
+    $response->setContent($content);
+    $response->setStatusCode(200);
+    $response->send();
+}

@@ -1,10 +1,11 @@
 <?php
 use Impress\Framework\Http\Route;
 
-Route::post("/", function () {
-    echo "xxxxxxxx";
-});
+//Route::post("/", function () {
+//    echo "xxxxxxxx";
+//});
 Route::get("/", "HelloWorld@index");
+Route::get("/s", function (){echo "xxxxx";});
 
 Route::group([
     "prefix" => "/s",
@@ -18,16 +19,10 @@ Route::group([
             "d", "e", "f"
         ]
     ], function () {
-        Route::post("/a", function () {
-            echo "xxxxxxxx";
-        }, ["xxxx"]);
-        Route::get("/b", function () {
-            echo "xxxxxxxx";
-        });
+        Route::post("/a", "HelloWorld@index", ["xxxx"]);
+        Route::get("/b", "HelloWorld@index");
     });
-    Route::get("/c", function () {
-        echo "xxxxxxxx";
-    }, ["ccc"]);
+    Route::get("/c", "HelloWorld@index", ["ccc"]);
 });
 
 

@@ -12,6 +12,7 @@
     ],
     "require": {
         "impress-php/framework" : "dev-master",
+        "predis/predis" : "~1.1.0",
         "workerman/phpsocket.io" : "~1.0.4"
     },
     "require-dev": {

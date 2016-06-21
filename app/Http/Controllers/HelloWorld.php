@@ -5,8 +5,16 @@ use Impress\Framework\Http\Controller;
 
 class HelloWorld extends Controller
 {
+    public function __construct()
+    {
+    }
+
     public function index()
     {
+        $this->session_start();
+        $this->session()->set("ss", "ss" . time());
+        $this->session()->set("ff", "ff" . time());
+
         $name = $this->request()->get("name");
         is_null($name) && $name = "world";
 
@@ -19,5 +27,12 @@ class HelloWorld extends Controller
         return $this->response()->view("helloworld.twig", [
             "firstname" => $name
         ]);
+    }
+
+    public function config()
+    {
+        $c = config("database.master.host");
+        $s = $this->request()->getSession();
+        return env("SESSION_DRIVER_CONFIG");
     }
 }

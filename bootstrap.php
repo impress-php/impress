@@ -22,11 +22,13 @@ require_once ROOT . DIRECTORY_SEPARATOR . "vendor/autoload.php";
 $dotenv = new \Dotenv\Dotenv(CONFIG_DIR);
 $dotenv->load();
 
-if (boolval(getenv("DEBUG_DISPLAY_ERRORS"))) {
+if (boolval(env("DEBUG_DISPLAY_ERRORS", 0))) {
     ini_set("display_errors", 1);
     error_reporting(E_ALL);
 }
 
-if (!date_default_timezone_set(getenv("TIMEZONE"))) {
-    ini_set("date.timezone", getenv("TIMEZONE"));
+if ($TIMEZONE = getenv("TIMEZONE")) {
+    if (!date_default_timezone_set($TIMEZONE)) {
+        ini_set("date.timezone", $TIMEZONE);
+    }
 }

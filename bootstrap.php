@@ -2,9 +2,9 @@
 define('IMPRESS_START', microtime(true));
 
 define("ROOT", dirname(__FILE__));
+define("VENDOR_DIR", ROOT . DIRECTORY_SEPARATOR . "vendor");
 define("CONFIG_DIR", ROOT . DIRECTORY_SEPARATOR . "config");
 define("APP_DIR", ROOT . DIRECTORY_SEPARATOR . "app" . DIRECTORY_SEPARATOR . "App");
-define("CRON_DIR", ROOT . DIRECTORY_SEPARATOR . "app" . DIRECTORY_SEPARATOR . "Cron");
 define("HTTP_DIR", ROOT . DIRECTORY_SEPARATOR . "app" . DIRECTORY_SEPARATOR . "Http");
 define("ROUTES_FILE", HTTP_DIR . DIRECTORY_SEPARATOR . "Routes.php");
 define("STORAGE_DIR", ROOT . DIRECTORY_SEPARATOR . "storage");

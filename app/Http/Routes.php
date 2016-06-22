@@ -5,8 +5,10 @@ use Impress\Framework\Http\Route;
 //    echo "xxxxxxxx";
 //});
 Route::get("/", "HelloWorld@index");
-Route::get("/c", "HelloWorld@config");
-Route::get("/s", function (){echo "xxxxx";});
+Route::get("/c", "HelloWorld@config", [], '', 'cc');
+Route::get("/s", function () {
+    echo "xxxxx";
+});
 
 Route::group([
     "prefix" => "/s",

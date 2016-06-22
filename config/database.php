@@ -1,5 +1,9 @@
 <?php
 return [
+    'doctrine' => [
+        'isDevMode' => true
+    ],
+
     'mysql' => [
         'master' => [
             'host' => '127.0.0.1',

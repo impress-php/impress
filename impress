@@ -1,13 +1,14 @@
 #!/usr/bin/env php
 <?php
-require_once dirname(__FILE__) . "/../" . "bootstrap.php";
+require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . "bootstrap.php";
 
 if ($argc === 1) {
-    echo("Error: please choice a cron." . PHP_EOL);
+    echo("Error: please choice a app." . PHP_EOL);
     print_app_dir_files();
 } else {
     $f = $argv[1];
-    $f = CRON_DIR . DIRECTORY_SEPARATOR . $f;
+
+    $f = APP_DIR . DIRECTORY_SEPARATOR . $f;
 
     if (is_dir($f)) {
         $f .= DIRECTORY_SEPARATOR . "main.php";
@@ -16,26 +17,31 @@ if ($argc === 1) {
     }
 
     if (!is_file($f)) {
-        echo("Error: cron file '$f' can not found." . PHP_EOL . PHP_EOL);
+        echo("Error: app file '$f' can not found." . PHP_EOL . PHP_EOL);
         print_app_dir_files();
         exit;
     }
 
+    $argc = $argc - 1;
     $argv[0] = $f;
     unset($argv[1]);
     $argv = array_values($argv);
+
+    $_SERVER['argc'] = $argc;
+    $_SERVER['argv'] = $argv;
+
     require_once $f;
 }
 
 function print_app_dir_files()
 {
-    $h = opendir(CRON_DIR);
+    $h = opendir(APP_DIR);
 
     $file = true;
     $files = [];
     while ($file !== false) {
         $file = readdir($h);
-        (!in_array($file, ['.', '..'])) && $files[] = $file;
+        (substr($file, 0, 1) !== '.') && $files[] = $file;
     }
 
     foreach ($files as $f) {

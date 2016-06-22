@@ -12,8 +12,9 @@ class HelloWorld extends Controller
     public function index()
     {
         $this->session_start();
-        $this->session()->set("ss", "ss" . time());
+        $this->session()->set("ss", serialize(['s', 'd']) . time());
         $this->session()->set("ff", "ff" . time());
+        var_dump(unserialize($this->session()->get("ss")));
 
         $name = $this->request()->get("name");
         is_null($name) && $name = "world";

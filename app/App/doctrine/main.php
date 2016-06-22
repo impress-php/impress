@@ -27,4 +27,4 @@ if (!($helperSet instanceof HelperSet)) {
     }
 }
 
-\Doctrine\ORM\Tools\Console\ConsoleRunner::run($helperSet, $commands);
+ConsoleRunner::run($helperSet, $commands);

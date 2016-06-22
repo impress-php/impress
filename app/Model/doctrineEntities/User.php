@@ -1,7 +1,5 @@
 <?php
 
-namespace App\Model;
-
 /**
  * @Entity @Table(name="users")
  */
@@ -40,9 +38,9 @@ class User
         $this->name = $name;
     }
 
-    public function getPassword($password)
+    public function getPassword()
     {
-        $this->password = $password;
+        $this->password;
     }
 
     public function setPassword($password)

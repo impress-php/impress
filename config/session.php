@@ -6,9 +6,31 @@
  */
 
 return [
-    'name' => 'SID',
-    'cookie_path' => '/',
-    'cookie_domain' => '',
-    'cookie_lifetime' => '0',
-    'gc_maxlifetime' => env('SESSION_DEFAULT_EXPIRE', 86400)
+    'default' => [
+        'options' => [
+            'name' => 'SID',
+            'cookie_path' => '/',
+            'cookie_domain' => 'impress.com',
+            'cookie_lifetime' => 0,
+            'gc_maxlifetime' => 86400
+        ],
+        'handler' => [
+            'prefix' => 'sid_',
+            'expiretime' => 86400
+        ]
+    ],
+
+    'long' => [
+        'options' => [
+            'name' => 'SID',
+            'cookie_path' => '/',
+            'cookie_domain' => 'impress.com',
+            'cookie_lifetime' => 86400,
+            'gc_maxlifetime' => 86400
+        ],
+        'handler' => [
+            'prefix' => 'sid_',
+            'expiretime' => 86400
+        ]
+    ]
 ];

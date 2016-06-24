@@ -5,6 +5,7 @@ use Impress\Framework\Http\Route;
 //    echo "xxxxxxxx";
 //});
 Route::get("/", "HelloWorld@index");
+Route::get("/login", "HelloWorld@login");
 Route::get("/c", "HelloWorld@config", [], '', 'cc');
 Route::get("/s", function () {
     echo "xxxxx";

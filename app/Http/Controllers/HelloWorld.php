@@ -12,8 +12,6 @@ class HelloWorld extends Controller
     public function index()
     {
         $this->session_start();
-        $this->session()->set("ss", serialize(['s', 'd']) . time());
-        $this->session()->set("ff", "ff" . time());
         var_dump(unserialize($this->session()->get("ss")));
 
         $name = $this->request()->get("name");
@@ -28,6 +26,18 @@ class HelloWorld extends Controller
         return $this->response()->view("helloworld.twig", [
             "firstname" => $name
         ]);
+    }
+
+    public function login()
+    {
+        $_COOKIE['SID'] = null;
+        // $this->response()->clearCookie("SID","/","impress.com");
+        $this->response()->setContent("Login success");
+        $this->session_start("session.long");
+        $this->session()->set("ss", serialize(['s', 'd']) . time());
+        $this->session()->set("ff", "ff" . time());
+
+        return $this->response();
     }
 
     public function config()

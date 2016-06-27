@@ -10,9 +10,11 @@ return [
         'options' => [
             'name' => 'SID',
             'cookie_path' => '/',
-            'cookie_domain' => 'impress.com',
+            'cookie_domain' => env("COOKIE_DOMAIN"),
             'cookie_lifetime' => 0,
-            'gc_maxlifetime' => 86400
+            'gc_maxlifetime' => 86400,
+            'cookie_httponly' => true,
+            'cookie_secure' => 0
         ],
         'handler' => [
             'prefix' => 'sid_',
@@ -24,9 +26,11 @@ return [
         'options' => [
             'name' => 'SID',
             'cookie_path' => '/',
-            'cookie_domain' => 'impress.com',
+            'cookie_domain' => env("COOKIE_DOMAIN"),
             'cookie_lifetime' => 86400,
-            'gc_maxlifetime' => 86400
+            'gc_maxlifetime' => 86400,
+            'cookie_httponly' => true,
+            'cookie_secure' => 0
         ],
         'handler' => [
             'prefix' => 'sid_',

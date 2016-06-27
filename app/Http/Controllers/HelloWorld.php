@@ -12,16 +12,17 @@ class HelloWorld extends Controller
     public function index()
     {
         $this->session_start();
-        var_dump(unserialize($this->session()->get("ss")));
 
         $name = $this->request()->get("name");
         is_null($name) && $name = "world";
 
         $this->response()->setCookie("test1", "123");
         $this->response()->setCookie("test2", "321");
-        $this->response()->setCookie("xxxx", "ffff");
-        $this->response()->setCookie("vv", "ww");
+        $this->response()->setCookie("xxxx", "fsfsd");
+        $this->response()->setCookie("vv", "xvcsdf2");
         $this->response()->removeCookie("xxxx");
+        var_dump($this->request()->getCookie("vv"));
+        var_dump($this->session()->get("ss"));
 
         return $this->response()->view("helloworld.twig", [
             "firstname" => $name
@@ -30,10 +31,8 @@ class HelloWorld extends Controller
 
     public function login()
     {
-        $_COOKIE['SID'] = null;
-        // $this->response()->clearCookie("SID","/","impress.com");
         $this->response()->setContent("Login success");
-        $this->session_start("session.long");
+        $this->session_start("session.long", true);
         $this->session()->set("ss", serialize(['s', 'd']) . time());
         $this->session()->set("ff", "ff" . time());
 

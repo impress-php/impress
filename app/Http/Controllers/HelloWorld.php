@@ -39,6 +39,16 @@ class HelloWorld extends Controller
         return $this->response();
     }
 
+    public function getAbc()
+    {
+        return 'xxxxxx';
+    }
+
+    public function abcAbc()
+    {
+        return 'abcAbc';
+    }
+
     public function config()
     {
         $c = config("database.master.host");

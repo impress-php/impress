@@ -7,9 +7,9 @@ use Impress\Framework\Http\Route;
 Route::get("/", "HelloWorld@index");
 Route::get("/login", "HelloWorld@login");
 Route::get("/c", "HelloWorld@config", [], '', 'cc');
-Route::get("/s", function () {
-    echo "xxxxx";
-});
+
+// todo: Need test group.
+Route::controller("HelloWorld");
 
 Route::group([
     "prefix" => "/s",

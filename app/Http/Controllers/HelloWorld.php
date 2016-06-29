@@ -9,7 +9,7 @@ class HelloWorld extends Controller
     {
     }
 
-    public function index()
+    public function getIndex()
     {
         $this->session_start();
 

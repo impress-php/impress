@@ -1,14 +1,13 @@
 <?php
 use Impress\Framework\Http\Route;
 
-//Route::post("/", function () {
-//    echo "xxxxxxxx";
-//});
-Route::get("/", "HelloWorld@index");
+Route::post("/", function () {
+    echo "xxxxxxxx";
+});
+//Route::get("/", "HelloWorld@index");
 Route::get("/login", "HelloWorld@login");
 Route::get("/c", "HelloWorld@config", [], '', 'cc');
 
-// todo: Need test group.
 Route::controller("HelloWorld");
 
 Route::group([

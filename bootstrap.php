@@ -1,25 +1,10 @@
 <?php
 define('IMPRESS_START', microtime(true));
-
-define("ROOT", dirname(__FILE__));
-define("VENDOR_DIR", ROOT . DIRECTORY_SEPARATOR . "vendor");
-define("CONFIG_DIR", ROOT . DIRECTORY_SEPARATOR . "config");
-define("APP_DIR", ROOT . DIRECTORY_SEPARATOR . "app" . DIRECTORY_SEPARATOR . "App");
-define("HTTP_DIR", ROOT . DIRECTORY_SEPARATOR . "app" . DIRECTORY_SEPARATOR . "Http");
-define("ROUTES_FILE", HTTP_DIR . DIRECTORY_SEPARATOR . "Routes.php");
-define("STORAGE_DIR", ROOT . DIRECTORY_SEPARATOR . "storage");
-define("VIEWS_DIR", STORAGE_DIR . DIRECTORY_SEPARATOR . "views");
-define("DATA_DIR", STORAGE_DIR . DIRECTORY_SEPARATOR . "data");
-define("LOG_DIR", DATA_DIR . DIRECTORY_SEPARATOR . "logs");
-define("PID_DIR", DATA_DIR . DIRECTORY_SEPARATOR . "pid");
-define("CACHE_DIR", DATA_DIR . DIRECTORY_SEPARATOR . "cache");
-define("CACHE_VIEWS_DIR", CACHE_DIR . DIRECTORY_SEPARATOR . "views");
-define("SESSIONS_DIR", DATA_DIR . DIRECTORY_SEPARATOR . "sessions");
-
-require_once ROOT . DIRECTORY_SEPARATOR . "vendor/autoload.php";
+define("IMPRESS_PHP_ROOT_PATH", dirname(__FILE__));
+require_once IMPRESS_PHP_ROOT_PATH . DIRECTORY_SEPARATOR . "vendor/autoload.php";
 
 // require config|env files
-$dotenv = new \Dotenv\Dotenv(CONFIG_DIR);
+$dotenv = new \Dotenv\Dotenv(config_path());
 $dotenv->load();
 
 if (boolval(env("DEBUG_DISPLAY_ERRORS", 0))) {

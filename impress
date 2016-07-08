@@ -8,7 +8,7 @@ if ($argc === 1) {
 } else {
     $f = $argv[1];
 
-    $f = APP_DIR . DIRECTORY_SEPARATOR . $f;
+    $f = app_path("App") . DIRECTORY_SEPARATOR . $f;
 
     if (is_dir($f)) {
         $f .= DIRECTORY_SEPARATOR . "main.php";
@@ -35,7 +35,7 @@ if ($argc === 1) {
 
 function print_app_dir_files()
 {
-    $h = opendir(APP_DIR);
+    $h = opendir(app_path("App"));
 
     $file = true;
     $files = [];

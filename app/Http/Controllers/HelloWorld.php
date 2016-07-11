@@ -9,6 +9,13 @@ class HelloWorld extends Controller
     {
     }
 
+    public function index()
+    {
+        return $this->response()->view("helloworld.twig", [
+            "firstname" => 'xxxxxxxxxx'
+        ]);
+    }
+
     public function getIndex()
     {
         $this->session_start();

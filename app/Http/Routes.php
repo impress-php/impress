@@ -1,28 +1,28 @@
 <?php
-use Impress\Framework\Http\Route;
+use Impress\Framework\Http\Route\Route;
 
 //Route::get("/", "HelloWorld@index");
-Route::get("/login", "HelloWorld@login");
-Route::get("/c", "HelloWorld@config", [], '', 'cc');
-
+//Route::get("/login", "HelloWorld@login");
+//Route::get("/c", "HelloWorld@config", [], '', 'cc');
+//
 Route::controller("HelloWorld");
 
-Route::group([
-    "prefix" => "/s",
-    "middleware" => [
-        "a", "b", "c"
-    ]
-], function () {
-    Route::group([
-        "prefix" => "/f",
-        "middleware" => [
-            "d", "e", "f"
-        ]
-    ], function () {
-        Route::post("/a", "HelloWorld@index", ["xxxx"]);
-        Route::get("/b", "HelloWorld@index");
-    });
-    Route::get("/c", "HelloWorld@index", ["ccc"]);
-});
+//
+//Route::group([
+//    "prefix" => "/s////",
+//    "middleware" => [
+//        "a", "b", "c", "d"
+//    ]
+//], function () {
+//    Route::group([
+//        "prefix" => "/f/",
+//        "middleware" => [
+//            "d", "e", "f"
+//        ]
+//    ], function () {
+//        Route::controller("HelloWorld");
+//    });
+//    Route::get("/c", "HelloWorld@index", ["ccc"]);
+//});
 
 

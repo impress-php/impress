@@ -1,0 +1,5 @@
+site_name: Impress-PHP Framework Documents
+pages:
+- Home: index.md
+- About: about.md
+theme: readthedocs

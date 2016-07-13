@@ -1,5 +1,8 @@
 site_name: Impress-PHP Framework Documents
+theme: readthedocs
+repo_url: https://github.com/impress-php/impress
+
 pages:
 - Home: index.md
 - About: about.md
-theme: readthedocs
+

@@ -1,0 +1,24 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Welcome to Impress-PHP Framework Documents", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#welcome-to-impress-php-framework-documents", 
+            "text": "", 
+            "title": "Welcome to Impress-PHP Framework Documents"
+        }, 
+        {
+            "location": "/about/", 
+            "text": "Welcome to Impress-PHP Framework Documents", 
+            "title": "About"
+        }, 
+        {
+            "location": "/about/#welcome-to-impress-php-framework-documents", 
+            "text": "", 
+            "title": "Welcome to Impress-PHP Framework Documents"
+        }
+    ]
+}

@@ -1,5 +1,5 @@
 <?php
-require_once dirname(__FILE__) . "/../" . "bootstrap.php";
+require_once dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . "bootstrap.php";
 
 $httpBootstrap = new \Impress\Framework\Http\Bootstrap();
 $httpBootstrap->response();

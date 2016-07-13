@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Middleware;
 
-use Impress\Framework\Http\Middleware;
+use Impress\Framework\Http\Middleware\Middleware;
 
 class Csrf extends Middleware
 {

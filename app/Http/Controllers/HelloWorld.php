@@ -7,6 +7,7 @@ class HelloWorld extends Controller
 {
     public function __construct()
     {
+        $this->middleware(['csrf','base'],['only'=>['getIndex']]);
     }
 
     public function index()

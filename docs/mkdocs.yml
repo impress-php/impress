@@ -1,8 +1,11 @@
 site_name: Impress-PHP Framework Documents
+site_description: 
+site_author: 
+google_analytics: ['UA-80708430-1', 'auto']
+
 theme: readthedocs
 repo_url: https://github.com/impress-php/impress
 
 pages:
 - Home: index.md
 - About: about.md
-

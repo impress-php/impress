@@ -18,6 +18,7 @@ class HelloWorld extends Controller
 
     public function getIndex()
     {
+        var_dump($this->request()->getLanguages());
         $this->session_start();
 
         $name = $this->request()->get("name");

@@ -1,9 +1,9 @@
 <?php
 namespace App\Http\Middleware;
 
-use Impress\Framework\Http\Controller;
+use Impress\Framework\Http\Middleware;
 
-class Csrf extends Controller
+class Csrf extends Middleware
 {
     public function handle()
     {

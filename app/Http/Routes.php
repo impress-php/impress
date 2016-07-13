@@ -5,7 +5,7 @@ use Impress\Framework\Http\Route\Route;
 //Route::get("/login", "HelloWorld@login");
 //Route::get("/c", "HelloWorld@config", [], '', 'cc');
 //
-Route::controller("HelloWorld");
+Route::controller("HelloWorld", ['as' => 'HelloWorld']);
 
 //
 //Route::group([

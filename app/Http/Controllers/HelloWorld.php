@@ -1,20 +1,28 @@
 <?php
 namespace App\Http\Controllers;
 
+use Gregwar\Captcha\CaptchaBuilder;
 use Impress\Framework\Http\Controller;
 
 class HelloWorld extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['csrf','base'],['only'=>['getIndex']]);
+        $this->middleware(['csrf', 'base'], ['only' => ['getIndex']]);
     }
 
-    public function index()
+    public function index($page, $c)
     {
         return $this->response()->view("helloworld.twig", [
             "firstname" => 'xxxxxxxxxx'
         ]);
+    }
+
+    public function getPic()
+    {
+        $builder = new CaptchaBuilder("31+8");
+        $builder->build();
+        return $this->response()->raw($builder->get(), 200, ['Content-type' => 'image/jpeg']);
     }
 
     public function getIndex()

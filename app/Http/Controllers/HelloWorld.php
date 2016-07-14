@@ -11,8 +11,9 @@ class HelloWorld extends Controller
         $this->middleware(['csrf', 'base'], ['only' => ['getIndex']]);
     }
 
-    public function index($page, $c)
+    public function index($page, $c=80)
     {
+        var_dump($c);
         return $this->response()->view("helloworld.twig", [
             "firstname" => 'xxxxxxxxxx'
         ]);

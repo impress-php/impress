@@ -1,12 +1,13 @@
 <?php
 use Impress\Framework\Http\Route\Route;
 
-Route::get("/{page = 1}/{c=1}", "HelloWorld@index",[
-    'matches'=>[
-        'page'=>'\d',
-        'c'=>'\d+'
+Route::get("/{page = 1}/{c=?}", "HelloWorld@index", [
+    'where' => [
+        'page' => '\d+',
+        'c' => '\d+'
     ]
 ]);
+
 //Route::get("/login", "HelloWorld@login");
 //Route::get("/c", "HelloWorld@config", [], '', 'cc');
 //

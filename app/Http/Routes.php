@@ -5,8 +5,7 @@ Route::get("/{page = 1}/{c=?}", "HelloWorld@index", [
     'where' => [
         'page' => '\d+',
         'c' => '\d+'
-    ],
-    'middleware'=>'csrf'
+    ]
 ]);
 
 //Route::get("/login", "HelloWorld@login");

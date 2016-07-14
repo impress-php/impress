@@ -6,12 +6,13 @@ use Impress\Framework\Http\Controller;
 
 class HelloWorld extends Controller
 {
-    public function __construct()
+    public function __construct($routeParameters)
     {
+        parent::__construct($routeParameters);
         $this->middleware(['csrf', 'base'], ['only' => ['getIndex']]);
     }
 
-    public function index($page, $c=80)
+    public function index($page, $c = 80)
     {
         var_dump($c);
         return $this->response()->view("helloworld.twig", [

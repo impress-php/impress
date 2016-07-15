@@ -8,7 +8,7 @@ class HelloWorld extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['csrf', 'base'], ['only' => ['getIndex']]);
+        $this->middleware(['csrf', 'base'], ['only' => ['getIndexs']]);
     }
 
     public function index($page, $c = 80)
@@ -28,6 +28,8 @@ class HelloWorld extends Controller
 
     public function getIndex()
     {
+        var_dump(config("test.redis"));
+
         var_dump($this->request()->getLanguages());
         $this->session_start();
 

@@ -28,7 +28,7 @@ class HelloWorld extends Controller
 
     public function getIndex()
     {
-        var_dump(config("test.redis"));
+        var_dump(lang('helloworld.error'));
 
         var_dump($this->request()->getLanguages());
         $this->session_start();

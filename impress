@@ -48,3 +48,4 @@ function print_app_dir_files()
         echo str_replace(".php", "", $f) . PHP_EOL;
     }
 }
+

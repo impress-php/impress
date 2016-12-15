@@ -12,6 +12,10 @@ if (boolval(env("DEBUG_DISPLAY_ERRORS", 0))) {
     error_reporting(E_ALL);
 }
 
+if(env("ENV", 0) != "production"){
+    opcache_reset();
+}
+
 if ($TIMEZONE = getenv("TIMEZONE")) {
     if (!date_default_timezone_set($TIMEZONE)) {
         ini_set("date.timezone", $TIMEZONE);
